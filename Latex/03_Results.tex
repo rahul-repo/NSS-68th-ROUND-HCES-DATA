@@ -1,0 +1,240 @@
+\section{\textcolor{blue}{Results}}
+\subsection{\textbf{\large{\textcolor{deepgreen}{Hypothesis 1: Cereal Consumption Difference}}}}
+
+\vspace{2 mm}
+\underline{\textbf{\textcolor{blue}{Hypothesis:-}}}
+
+\[
+H_0:\ \mu_{\text{WB}} = \mu_{\text{AS}}
+\qquad\qquad
+H_1:\ \mu_{\text{WB}} \ne \mu_{\text{AS}}
+\]
+
+\underline{\textbf{\textcolor{blue}{Test Statistic :-}}}
+
+\[
+t \;=\; 
+\frac{\bar{X}_{\text{WB}} - \bar{X}_{\text{AS}}}
+{s_p \sqrt{\dfrac{1}{n_{\text{WB}}} + \dfrac{1}{n_{\text{AS}}}}}
+\]
+
+where the pooled standard deviation is
+
+\[
+s_p =
+\sqrt{
+\frac{
+(n_{\text{WB}} - 1)s_{\text{WB}}^2 + (n_{\text{AS}} - 1)s_{\text{AS}}^2
+}{
+n_{\text{WB}} + n_{\text{AS}} - 2
+}
+}.
+\]
+
+and the degrees of freedom is \( df = n_{\text{WB}} + n_{\text{AS}} - 2 \).
+
+
+\underline{\textbf{\textcolor{blue}{Computed Values :-}}}
+
+\[
+t_{\text{obs}} = 9.73, \qquad df = 19215.
+\]
+
+
+\underline{\textbf{\textcolor{blue}{Decision :-}}}
+
+For a two-sided test at the \(5\%\) level: \quad\(
+t_{\alpha/2,\ df} = t_{0.025,\ 19215} \approx 1.96.
+\)
+
+\textbf{Decision rule:}\(
+\quad \text{Reject } H_0 \quad \text{if} \quad |t_{\text{obs}}| > t_{\alpha/2,\ df}.
+\)
+
+Since, \quad\(
+|9.73| \;>\; 1.96;\text{we \textbf{\textcolor{deepgreen}{reject} \(H_0\)}}.
+\)
+
+\underline{\textbf{\textcolor{blue}{Conclusion :-}}}
+
+There is strong evidence that the mean per-capita cereal consumption in West Bengal and Assam differs significantly.
+
+\vspace{2 mm}
+\textbf{\textcolor{violet}{\large{Why this happens ?}}}
+
+If a state produces more irrigated pulses, households may purchase less from the market → lower expenditure.
+So , we Checked correlation between household cereal expenditure and irrigated pulse production within each state.
+
+The correlation coefficients between irrigated pulse production and household pulse expenditure are found to be $0.12$ for Assam and $0.21$ for West Bengal. Both values indicate a very weak positive relationship, implying that household expenditure on pulses is largely independent of the extent of irrigated pulse production. Hence, irrigation or production levels cannot explain the observed 
+expenditure differences between the two states. So there must be some other variables which cannot be detected from the given data.
+
+\vspace{4 mm}
+
+\subsection{\textbf{\textcolor{deepgreen}{\large{Hypothesis 2: Non-Vegetarian Consumption Prevalence}}}}
+
+\vspace{2 mm}
+\underline{\textbf{\textcolor{blue}{Hypothesis:-}}}
+\[
+H_0: p_{\text{WB}} = p_{\text{AS}}, \qquad 
+H_1: p_{\text{WB}} \neq p_{\text{AS}}
+\]
+
+\underline{\textbf{\textcolor{blue}{Test Statistic :-}}}
+The test statistic for the difference in two proportions is
+\[
+Z = \frac{\hat{p}_{\text{WB}} - \hat{p}_{\text{AS}}}
+        {\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_{\text{WB}}} + \frac{1}{n_{\text{AS}}}\right)}},
+\]
+where
+\[
+\hat{p} = \frac{x_{\text{WB}} + x_{\text{AS}}}{n_{\text{WB}} + n_{\text{AS}}} \quad\text{is the pooled proportion}
+\]
+ 
+
+\underline{\textbf{\textcolor{blue}{Computed Values :-}}}
+
+\[
+Z_{\text{obs}} = 4.4169
+\]
+
+\underline{\textbf{\textcolor{blue}{Decision :-}}}
+Since
+\[
+|Z_{\text{obs}}| = 4.4169 > 1.96,
+\]
+the null hypothesis is \textcolor{deepgreen}{\textbf{rejected}} at the 5\% significance level.
+
+\underline{\textbf{\textcolor{blue}{Conclusion :-}}}
+Hence, we conclude that the proportion of households consuming
+egg/fish/meat differs significantly between West Bengal and Assam.
+
+\vspace{2 mm}
+\begin{itemize}
+    \item \textbf{\textcolor{violet}{\large{Why this happens ?}}}
+\end{itemize}
+\textcolor{blue}{Religion} may be an important factor for this difference. As many Hindus are vegetarian due to different rituals in Hinduism, so it may happen that religion composition across the two states plays a crucial role here.
+
+A logistic regression model was fitted to examine whether the difference in
+non-vegetarian consumption between Assam and West Bengal (WB) can be explained
+by religious composition. The predictors were State (WB vs.\ Assam), Religion
+(Non-Hindu vs.\ Hindu), and their interaction. Household counts were used as
+weights.
+
+The estimated coefficients were:
+\[
+\beta_1(\text{WB}) = -0.35709 \ (p = 0.00048), \qquad
+\beta_2(\text{Non\mbox{-}Hindu}) = 0.41316 \ (p = 0.0273),
+\]
+\[
+\beta_3(\text{Interaction}) = -0.09394 \ (p = 0.6777).
+\]
+
+\underline{\textbf{\textcolor{blue}{State effect :-}}} The negative and highly significant coefficient for WB
+shows that, after controlling for religion, households in WB have
+significantly lower odds of consuming non-vegetarian food compared to Assam.
+
+\underline{\textbf{\textcolor{blue}{Religion Effect :-}}} The positive and significant coefficient for
+Non-Hindus indicates that Non-Hindu households are more likely to consume
+non-vegetarian food than Hindu households.
+
+\underline{\textbf{\textcolor{blue}{Interaction :-}}} The State\,\(\times\)\,Religion interaction is not
+significant, implying that the effect of religion is similar in both states.
+
+\underline{\textbf{\textcolor{blue}{Conclusion :-}}} Both State and Religion independently affect
+non-vegetarian consumption, so the difference between proportion of non veg consumption between the states can be
+explained by the religion factor . So Religion has a significant role in food consumption as well as expenditure across these states.  But it is also true that even after adjusting for religion, Assam shows a higher prevalence of non-vegetarian consumption than WB, suggesting the
+presence of additional regional or cultural factors.
+
+\vspace{2 mm}
+\subsection{\textbf{\textcolor{deepgreen}{\large{Comparison of MPCE between two states}}}}
+
+Here we compare the Monthly Per Capita Expenditure (MPCE) between two states. We obtained results as follows:-
+\begin{itemize}
+
+    \item \textbf{\textcolor{blue}{Mean Comparison (Welch \emph{t}-test)}}  
+    The mean MPCE differs significantly between the two states:  
+    $t=-15.971$, $df=9721.2$, $p<2.2\times10^{-16}$.  
+    Means: $\bar{X}_{18}=166398.9$, $\bar{X}_{19}=218863.1$.  
+    95\% CI for difference: $[-58903.57, -46024.92]$.
+
+     \textbf{Interpretation:}  
+    West Bengal has a clearly higher average MPCE than Assam.
+
+    \item \textbf{\textcolor{blue}{Inequality (Gini)}}  
+    $G_{18}=0.3056$, \; $G_{19}=0.3925$.  
+    Inequality is substantially higher in West Bengal.
+
+     \textbf{Quantile Comparison:}  
+    West Bengal exceeds Assam at all quantiles (10\%, 25\%, 50\%, 75\%, 90\%).  
+    The gap widens at upper quantiles, indicating greater top-end inequality.
+
+\textbf{\textcolor{violet}{Assam MPCE quantiles:}}
+    
+    \(
+    Q_{0.10}=78996.6,\;
+    Q_{0.25}=98167.5,\;
+    Q_{0.50}=134340.0,\;
+    Q_{0.75}=194887.5,\;
+    Q_{0.90}=285584.0.
+    \)
+
+    \textbf{\textcolor{violet}{West Bengal MPCE quantiles:}}
+    
+    \(
+    Q_{0.10}=82260.0,\;
+    Q_{0.25}=105582.2,\;
+    Q_{0.50}=153350.0,\;
+    Q_{0.75}=251175.0,\;
+    Q_{0.90}=420737.5.
+    \)
+
+\end{itemize}
+
+\subsection{\textbf{\textcolor{deepgreen}{\large{State-wise Comparison of Addiction Behavior \& Association Between Social Group and Addiction Behavior}}}}
+
+
+\subsubsection{\underline{\textbf{\textcolor{blue}{Hypothesis:-}}}}
+\begin{itemize}
+    \item $H_0$: Addiction behavior (smoking, alcohol, drugs) is the same in Assam and West Bengal .
+    \item $H_1$: Addiction behavior differs between the two states.
+\end{itemize}
+
+\underline{\textbf{\textcolor{blue}{Test Statistic:}}}
+
+A Pearson Chi-square test was applied to the contingency table of
+State and addiction indicators. The result was:
+\[
+\chi^2_{\text{obs}} = 527.37,\qquad df = 224,\qquad p\text{-value} < 2.2\times 10^{-16}.
+\]
+
+\underline{\textbf{\textcolor{blue}{Decision: }}}
+
+Since the p-value is far below $0.05$, we reject $H_0$.
+
+\underline{\textbf{\textcolor{blue}{Conclusion: }}}
+
+There is strong statistical evidence of a difference in addiction behaviour between Assam and West Bengal. Addiction patterns (smoking, alcohol, drug use) vary significantly across the two states.
+
+\subsubsection{\underline{\textbf{\textcolor{blue}{Hypothesis:-}}}}
+\begin{itemize}
+    \item $H_0$: Social group and addiction behaviour (smoking, alcohol, drugs) are independent.
+    \item $H_1$: Social group and addiction behaviour are dependent.
+\end{itemize}
+
+\underline{\textbf{\textcolor{blue}{Test Statistic:}}}
+
+A Pearson Chi-square test was conducted on the contingency table of social group and addiction indicators. The observed test statistic was:
+\[
+\chi^2 = 827.51, \quad df = 672, \quad p\text{-value} = 3.584 \times 10^{-5}.
+\]
+
+\underline{\textbf{\textcolor{blue}{Decision }}}
+
+
+Since the p-value is far below $0.05$, we \textcolor{deepgreen}{\textbf{reject}} the null hypothesis $H_0$.
+
+\underline{\textbf{\textcolor{blue}{Conclusion }}}
+
+There is significant statistical evidence that social group and addiction behaviour are associated.  
+Thus, the prevalence of smoking, alcohol consumption, and drug use differs across social groups.
+
